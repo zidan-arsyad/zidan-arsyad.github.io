@@ -38,8 +38,9 @@ npm run preview  # serve the built site locally
 | Add a project | Create a new `.md` file in `src/content/projects/` (frontmatter schema in `src/content.config.ts`) |
 | Change the featured project | Flip `featured: true`/`false` in project frontmatter — only one `true` at a time |
 | Update the resume | Replace the file(s) in `src/assets/resume/` — download buttons are generated per file found, no code changes |
-| Bio, contact links, education | `src/site.config.ts` |
-| Headshot | `public/images/headshot.png` |
+| Bio, contact links, education, hero line, focus areas | `src/site.config.ts` |
+| Headshot | `public/images/headshot.jpeg` |
+| Social preview image (og-image) | `public/images/og-image.jpeg` (1200×630px recommended) |
 | Design tokens (color, type, spacing) | `src/styles/tokens.css` |
 
 ### Deployment

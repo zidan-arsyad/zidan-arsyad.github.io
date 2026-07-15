@@ -21,10 +21,10 @@
   --color-green-soft:   #E2EAD8;  /* tag/pill backgrounds, subtle fills */
   --color-green-bright: #5B8A69;  /* accents that sit on the dark block */
 
-  /* ---- Warm accent (terracotta-coral) ---- */
-  --color-accent:        #D2603A;  /* decorative pops — rules, dots, frames, badges */
-  --color-accent-strong: #AF4B29;  /* accent used as small text (passes AA on paper) */
-  --color-accent-soft:   #F5DFD1;  /* accent tint background */
+  /* ---- Accent (acid chartreuse) ---- */
+  --color-accent:        #AFC91E;  /* decorative pops — rules, dots, frames, badges */
+  --color-accent-strong: #5C6E12;  /* accent used as small text (passes AA on paper) */
+  --color-accent-soft:   #EDF2CE;  /* accent tint background */
 
   /* ---- Gold (used sparingly — highlight marker) ---- */
   --color-gold:      #E7B23D;  /* marker swipe, small highlights */

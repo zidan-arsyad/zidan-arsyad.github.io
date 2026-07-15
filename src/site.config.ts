@@ -21,7 +21,7 @@ export const site = {
   linkedin: 'https://www.linkedin.com/in/zidan-arsyad',
 
   // 2–4 sentence narrative bio (About section).
-  bio: "I'm an ML engineer with hands-on experience building and deploying end-to-end LLM pipelines — RAG, SFT, and CPT — for production use in government intelligence workflows. Most recently I led a four-person AI team delivering a legal document intelligence system for Komdigi (Indonesia's Ministry of Communication and Digital Affairs), serving structured daily briefs to ministry officials. I work across the full ML lifecycle: data collection, model training, API orchestration, and cloud deployment.",
+  bio: "I am an ML engineer with hands-on experience building and deploying end-to-end LLM pipelines — RAG, SFT, and CPT — for production use in government intelligence workflows. Most recently I led a four-person AI team delivering a legal document intelligence system for Komdigi (Indonesia's Ministry of Communication and Digital Affairs), serving structured daily briefs to ministry officials. I work across the full ML lifecycle: data collection, model training, API orchestration, and cloud deployment.",
 
   education: [
     {
