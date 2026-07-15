@@ -10,20 +10,53 @@ const { degree, institution, dates, note } = Astro.props;
 ---
 
 <div class="education-item">
+  <p class="dates">{dates}</p>
   <p class="degree">{degree}</p>
   <p class="institution">{institution}</p>
-  <p class="dates">{dates}</p>
   {note && <p class="note">{note}</p>}
 </div>
 
 <style>
+  /* Timeline rail with a coral node marker at the top of each entry */
   .education-item {
-    border-left: 4px solid var(--color-green-soft);
-    padding: var(--space-1) 0 var(--space-1) var(--space-6);
+    position: relative;
+    padding: 0 0 0 var(--space-8);
+  }
+
+  .education-item::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.35em;
+    bottom: -0.35em;
+    width: 2px;
+    background: var(--color-green-soft);
+  }
+
+  .education-item::after {
+    content: '';
+    position: absolute;
+    left: -4px;
+    top: 0.3em;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--color-accent);
+    border: 2px solid var(--color-bg);
+  }
+
+  .dates {
+    font-size: var(--text-xs);
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-accent-strong);
   }
 
   .degree {
-    font-size: var(--text-base);
+    margin-top: var(--space-1);
+    font-family: var(--font-display);
+    font-size: var(--text-lg);
     font-weight: 600;
     color: var(--color-ink);
   }
@@ -31,21 +64,13 @@ const { degree, institution, dates, note } = Astro.props;
   .institution {
     margin-top: var(--space-1);
     font-size: var(--text-sm);
-    color: var(--color-ink-muted);
-  }
-
-  .dates {
-    margin-top: var(--space-1);
-    font-family: var(--font-mono);
-    font-size: var(--text-xs);
     font-weight: 500;
-    letter-spacing: 0.06em;
     color: var(--color-ink-muted);
   }
 
   .note {
     margin-top: var(--space-2);
     font-size: var(--text-sm);
-    color: var(--color-ink);
+    color: var(--color-ink-muted);
   }
 </style>

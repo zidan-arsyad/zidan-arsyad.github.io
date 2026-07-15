@@ -57,14 +57,22 @@ import { resumeFiles, resumePdf } from '../lib/resume';
     display: inline-block;
     padding: var(--space-3) var(--space-6);
     font-size: var(--text-base);
-    font-weight: 500;
+    font-weight: 600;
     color: #ffffff;
     background: var(--color-green);
     text-decoration: none;
-    border-radius: var(--radius-sm);
+    border-radius: var(--radius-pill);
+    transition: background 150ms ease, transform 150ms ease;
   }
 
   .download-btn:hover {
     background: var(--color-green-strong);
+    transform: translateY(-1px);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .download-btn {
+      transition: none;
+    }
   }
 </style>

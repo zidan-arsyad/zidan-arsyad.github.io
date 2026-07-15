@@ -4,45 +4,57 @@ import { resumePdf } from '../lib/resume';
 ---
 
 <section class="hero" id="top" aria-label="Introduction">
-  <img
-    class="headshot"
-    src="/images/headshot.png"
-    alt={`Portrait of ${site.name}`}
-    width="200"
-    height="200"
-    loading="eager"
-  />
   <div class="intro">
+    <p class="eyebrow eyebrow--tick">Machine Learning Engineer</p>
     <h1>{site.name}</h1>
-    <p class="tagline">{site.tagline}</p>
+    <p class="lead">{site.heroLine}</p>
+
+    <ul class="focus" aria-label="Focus areas">
+      {site.focus.map((item) => <li>{item}</li>)}
+    </ul>
+
     <div class="ctas">
       {
         resumePdf && (
           <a class="cta-primary" href={resumePdf.url} download={resumePdf.downloadName}>
-            Download Resume
+            Download Résumé
           </a>
         )
       }
-      <a class="cta-secondary" href="#projects">View Projects</a>
+      <a class="cta-secondary" href="#projects">
+        View work <span aria-hidden="true">→</span>
+      </a>
     </div>
+  </div>
+
+  <div class="portrait">
+    <img
+      class="headshot"
+      src="/images/headshot.png"
+      alt={`Portrait of ${site.name}`}
+      width="260"
+      height="260"
+      loading="eager"
+    />
   </div>
 </section>
 
 <style>
   .hero {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr auto;
     align-items: center;
-    gap: var(--space-8);
-    padding-top: var(--space-12);
+    gap: var(--space-16);
+    padding-top: var(--space-16);
     padding-bottom: var(--space-16);
     /* The one entrance moment — nothing else animates on load */
-    animation: hero-enter 300ms ease-out both;
+    animation: hero-enter 400ms ease-out both;
   }
 
   @keyframes hero-enter {
     from {
       opacity: 0;
-      transform: translateY(12px);
+      transform: translateY(14px);
     }
     to {
       opacity: 1;
@@ -56,75 +68,151 @@ import { resumePdf } from '../lib/resume';
     }
   }
 
-  .headshot {
-    width: 200px;
-    height: 200px;
-    object-fit: cover;
-    border-radius: var(--radius-md);
-    border: 1px solid var(--color-border);
-    flex-shrink: 0;
+  .eyebrow {
+    margin-bottom: var(--space-4);
   }
 
   h1 {
-    font-family: var(--font-display);
-    font-size: clamp(2rem, 5vw, var(--text-3xl));
+    font-size: clamp(2.75rem, 8vw, var(--text-4xl));
     font-weight: 600;
-    line-height: 1.1;
+    letter-spacing: -0.02em;
     color: var(--color-ink);
   }
 
-  .tagline {
-    margin-top: var(--space-3);
-    font-size: var(--text-lg);
+  .lead {
+    margin-top: var(--space-6);
+    max-width: 34ch;
+    font-family: var(--font-display);
+    font-size: clamp(1.25rem, 2.4vw, var(--text-xl));
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.35;
     color: var(--color-ink-muted);
   }
 
-  .ctas {
-    margin-top: var(--space-6);
+  .focus {
+    list-style: none;
+    margin: var(--space-8) 0 0;
+    padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-4);
+    gap: var(--space-2);
   }
 
-  .ctas a {
-    display: inline-block;
-    padding: var(--space-3) var(--space-6);
-    font-size: var(--text-base);
-    font-weight: 500;
-    text-decoration: none;
-    border-radius: var(--radius-sm);
+  .focus li {
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-green-strong);
+    background: var(--color-green-soft);
+    border-radius: var(--radius-pill);
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .ctas {
+    margin-top: var(--space-8);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: var(--space-6);
   }
 
   .cta-primary {
+    display: inline-block;
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-decoration: none;
+    border-radius: var(--radius-pill);
     background: var(--color-green);
     color: #ffffff;
+    transition: background 150ms ease, transform 150ms ease;
   }
 
   .cta-primary:hover {
     background: var(--color-green-strong);
+    transform: translateY(-1px);
   }
 
   .cta-secondary {
-    color: var(--color-green);
-    background: transparent;
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    font-size: var(--text-base);
+    font-weight: 600;
+    text-decoration: none;
+    color: var(--color-ink);
+  }
+
+  .cta-secondary span {
+    transition: transform 200ms ease;
+    color: var(--color-accent-strong);
   }
 
   .cta-secondary:hover {
-    color: var(--color-green-strong);
-    background: var(--color-green-soft);
+    color: var(--color-accent-strong);
   }
 
-  @media (max-width: 639px) {
+  .cta-secondary:hover span {
+    transform: translateX(4px);
+  }
+
+  /* Portrait with an offset accent block behind it — the editorial frame */
+  .portrait {
+    position: relative;
+    flex-shrink: 0;
+    width: 260px;
+    height: 260px;
+  }
+
+  .portrait::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    transform: translate(16px, 16px);
+    border-radius: var(--radius-lg);
+    background: var(--color-accent);
+    z-index: 0;
+  }
+
+  .headshot {
+    position: relative;
+    z-index: 1;
+    width: 260px;
+    height: 260px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border-strong);
+  }
+
+  @media (max-width: 767px) {
     .hero {
-      flex-direction: column;
-      text-align: center;
-      gap: var(--space-6);
+      grid-template-columns: 1fr;
+      gap: var(--space-8);
       padding-top: var(--space-8);
       padding-bottom: var(--space-12);
     }
 
-    .ctas {
-      justify-content: center;
+    /* Portrait first on mobile, then the text */
+    .portrait {
+      order: -1;
+      width: 200px;
+      height: 200px;
+    }
+
+    .headshot {
+      width: 200px;
+      height: 200px;
+    }
+
+    .lead {
+      max-width: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .cta-primary,
+    .cta-secondary span {
+      transition: none;
     }
   }
 </style>

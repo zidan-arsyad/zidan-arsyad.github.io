@@ -3,20 +3,32 @@ import { site } from '../site.config';
 ---
 
 <section id="about" aria-label="About">
-  <p class="eyebrow">About</p>
+  <p class="eyebrow eyebrow--tick">About</p>
   <p class="bio">{site.bio}</p>
 </section>
 
 <style>
   section {
-    padding: var(--space-8) 0;
+    padding: var(--space-16) 0;
     border-top: 1px solid var(--color-border);
   }
 
   .bio {
-    margin-top: var(--space-4);
-    max-width: 65ch;
+    margin-top: var(--space-6);
+    max-width: 60ch;
     font-size: var(--text-lg);
+    line-height: 1.7;
     color: var(--color-ink);
+  }
+
+  /* Editorial drop cap — Fraunces, in the warm accent */
+  .bio::first-letter {
+    float: left;
+    font-family: var(--font-display);
+    font-weight: 600;
+    font-size: 3.6em;
+    line-height: 0.78;
+    padding: 0.05em var(--space-3) 0 0;
+    color: var(--color-accent-strong);
   }
 </style>

@@ -14,41 +14,113 @@ import { site } from '../site.config';
   <About />
 
   <section id="projects" aria-label="Projects">
-    <p class="eyebrow">Projects</p>
+    <header class="section-head">
+      <p class="eyebrow eyebrow--tick">Portfolio</p>
+      <h2>Selected work</h2>
+    </header>
     <ProjectList />
   </section>
 
   <section id="education" aria-label="Education">
-    <p class="eyebrow">Education</p>
+    <p class="eyebrow eyebrow--tick">Education</p>
     <div class="education-list">
       {site.education.map((entry) => <EducationItem {...entry} />)}
     </div>
   </section>
 
   <section id="resume" aria-label="Resume">
-    <p class="eyebrow">Resume</p>
+    <p class="eyebrow eyebrow--tick">Résumé</p>
     <ResumeEmbed />
   </section>
 
   <section id="contact" aria-label="Contact">
-    <p class="eyebrow">Contact</p>
-    <ContactLinks />
+    <div class="contact-panel">
+      <p class="eyebrow eyebrow--tick contact-eyebrow">Contact</p>
+      <h2>Let's build something.</h2>
+      <p class="contact-lead">
+        Open to ML engineering and applied-research work. The fastest way to
+        reach me is email.
+      </p>
+      <ContactLinks />
+    </div>
   </section>
 </BaseLayout>
 
 <style>
   section {
-    padding: var(--space-8) 0;
+    padding: var(--space-16) 0;
     border-top: 1px solid var(--color-border);
   }
 
+  /* Contact breaks the rhythm — full-width dark panel, no divider rule above it */
+  #contact {
+    border-top: none;
+    padding-bottom: var(--space-8);
+  }
+
+  .section-head {
+    margin-bottom: var(--space-8);
+  }
+
+  .section-head h2 {
+    margin-top: var(--space-3);
+    font-size: clamp(2rem, 4vw, var(--text-3xl));
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--color-ink);
+  }
+
   section > .eyebrow {
-    margin-bottom: var(--space-6);
+    margin-bottom: var(--space-8);
   }
 
   .education-list {
     display: flex;
     flex-direction: column;
-    gap: var(--space-6);
+    gap: var(--space-8);
+  }
+
+  /* ---- Contact panel: the deep-forest finale ---- */
+  .contact-panel {
+    background: var(--color-bg-dark);
+    color: var(--color-ink-invert);
+    border-radius: var(--radius-lg);
+    padding: var(--space-16) var(--space-12);
+    box-shadow: var(--shadow-soft);
+    /* Subtle warmth in the corner so the block isn't a flat rectangle */
+    background-image: radial-gradient(
+      120% 140% at 100% 0%,
+      rgba(210, 96, 58, 0.16) 0%,
+      transparent 45%
+    );
+  }
+
+  .contact-eyebrow {
+    margin-bottom: var(--space-6);
+    color: var(--color-gold);
+  }
+
+  .contact-eyebrow::before {
+    background: var(--color-gold);
+  }
+
+  .contact-panel h2 {
+    font-size: clamp(2.25rem, 5vw, var(--text-3xl));
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    color: var(--color-ink-invert);
+  }
+
+  .contact-lead {
+    margin-top: var(--space-4);
+    max-width: 42ch;
+    font-size: var(--text-lg);
+    color: var(--color-ink-invert-muted);
+  }
+
+  @media (max-width: 639px) {
+    .contact-panel {
+      padding: var(--space-12) var(--space-6);
+    }
   }
 </style>

@@ -31,35 +31,49 @@ import { site } from '../site.config';
 </ul>
 
 <style>
+  /* Rendered inside the dark contact panel (index.astro) — colors target that surface. */
   .contact-links {
     list-style: none;
-    margin: 0;
+    margin: var(--space-12) 0 0;
     padding: 0;
     display: flex;
     flex-wrap: wrap;
-    gap: var(--space-8);
+    gap: var(--space-4);
   }
 
   a {
     display: inline-flex;
     align-items: center;
-    gap: var(--space-2);
-    padding: var(--space-2) 0; /* tap target */
-    font-family: var(--font-mono);
-    font-size: var(--text-sm);
-    font-weight: 500;
-    color: var(--color-green);
+    gap: var(--space-3);
+    padding: var(--space-3) var(--space-6) var(--space-3) var(--space-4);
+    font-size: var(--text-base);
+    font-weight: 600;
+    color: var(--color-ink-invert);
     text-decoration: none;
+    border: 1px solid rgba(243, 239, 226, 0.22);
+    border-radius: var(--radius-pill);
+    transition: color 150ms ease, border-color 150ms ease, background 150ms ease;
+  }
+
+  a svg {
+    color: var(--color-gold);
+    transition: color 150ms ease;
   }
 
   a:hover {
-    color: var(--color-green-strong);
-    text-decoration: underline;
+    color: var(--color-bg-dark);
+    background: var(--color-gold);
+    border-color: var(--color-gold);
+  }
+
+  a:hover svg {
+    color: var(--color-bg-dark);
   }
 
   @media (max-width: 639px) {
     .contact-links {
       flex-direction: column;
+      align-items: flex-start;
       gap: var(--space-3);
     }
   }

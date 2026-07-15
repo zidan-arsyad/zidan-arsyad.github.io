@@ -2,42 +2,55 @@
    If a value changes here, update design.md first, then this file. */
 
 :root {
-  /* Backgrounds */
-  --color-bg:          #F6F7F5;  /* page background — cool paper, not cream */
-  --color-bg-raised:   #FFFFFF;  /* cards / raised surfaces */
-  --color-bg-inset:    #EEF1EC;  /* subtle recessed sections */
+  /* ---- Backgrounds ---- */
+  --color-bg:          #F7F4EC;  /* page background — warm paper */
+  --color-bg-raised:   #FFFDF8;  /* cards / raised surfaces — warm white */
+  --color-bg-inset:    #EFEBDF;  /* subtle recessed sections */
+  --color-bg-dark:     #12281D;  /* inverted deep-forest block (contact) */
 
-  /* Ink */
-  --color-ink:         #14201B;  /* primary text — near-black, green undertone */
+  /* ---- Ink ---- */
+  --color-ink:         #1A2620;  /* primary text — near-black, green undertone */
   --color-ink-muted:   #566058;  /* secondary text, captions, metadata */
-  --color-ink-faint:   #8A9189;  /* placeholders, disabled, least-important labels */
+  --color-ink-faint:   #8A9189;  /* placeholders, least-important labels */
+  --color-ink-invert:  #F3EFE2;  /* primary text on dark surfaces */
+  --color-ink-invert-muted: #AEBBAF; /* secondary text on dark surfaces */
 
-  /* Brand green (the accent) */
-  --color-green:        #1B4332;  /* links, buttons, active states, featured badge */
-  --color-green-strong: #122E22;  /* hover/active state of the above */
-  --color-green-soft:   #E3ECE6;  /* tag/pill backgrounds, subtle hover fills */
+  /* ---- Brand green (the anchor) ---- */
+  --color-green:        #1B4332;  /* links, buttons, active states */
+  --color-green-strong: #10301F;  /* hover/active of the above */
+  --color-green-soft:   #E2EAD8;  /* tag/pill backgrounds, subtle fills */
+  --color-green-bright: #5B8A69;  /* accents that sit on the dark block */
 
-  /* Structure */
-  --color-border:        #DCDFD9;  /* hairline dividers, card outlines */
-  --color-border-strong: #B9C1B6;  /* emphasis dividers, featured project outline */
+  /* ---- Warm accent (terracotta-coral) ---- */
+  --color-accent:        #D2603A;  /* decorative pops — rules, dots, frames, badges */
+  --color-accent-strong: #AF4B29;  /* accent used as small text (passes AA on paper) */
+  --color-accent-soft:   #F5DFD1;  /* accent tint background */
 
-  /* Feedback */
-  --color-focus: #1B4332;  /* focus ring — reuses brand green */
+  /* ---- Gold (used sparingly — highlight marker) ---- */
+  --color-gold:      #E7B23D;  /* marker swipe, small highlights */
+  --color-gold-soft: #F7E9BD;
 
-  /* Typography */
-  --font-display: 'Fraunces', Georgia, serif;
-  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
-  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+  /* ---- Structure ---- */
+  --color-border:        #E0DACA;  /* hairline dividers, card outlines (warm) */
+  --color-border-strong: #C6BEA8;  /* emphasis dividers, featured outline */
 
-  --text-xs:   0.75rem;   /* 12px — mono metadata, tags */
-  --text-sm:   0.875rem;  /* 14px — captions, footer */
-  --text-base: 1rem;      /* 16px — body copy */
-  --text-lg:   1.125rem;  /* 18px — lead paragraph in About */
-  --text-xl:   1.5rem;    /* 24px — H3 / card titles */
-  --text-2xl:  2rem;      /* 32px — H2 section headings */
-  --text-3xl:  3rem;      /* 48px — H1 hero name (clamp down on mobile) */
+  /* ---- Feedback ---- */
+  --color-focus: #1B4332;  /* focus ring — brand green, high contrast on paper */
 
-  /* Spacing — 4px base unit */
+  /* ---- Typography (two families only) ---- */
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-sans:    'Hanken Grotesk', 'Segoe UI', system-ui, sans-serif;
+
+  --text-xs:   0.75rem;    /* 12px — tags, fine print */
+  --text-sm:   0.875rem;   /* 14px — captions, footer, labels */
+  --text-base: 1rem;       /* 16px — body copy */
+  --text-lg:   1.125rem;   /* 18px — lead paragraph */
+  --text-xl:   1.5rem;     /* 24px — card titles */
+  --text-2xl:  2rem;       /* 32px — section headings */
+  --text-3xl:  3rem;       /* 48px — large headings */
+  --text-4xl:  4.25rem;    /* 68px — hero name (clamps down on mobile) */
+
+  /* ---- Spacing — 4px base unit ---- */
   --space-1: 0.25rem;   /* 4px */
   --space-2: 0.5rem;    /* 8px */
   --space-3: 0.75rem;   /* 12px */
@@ -48,8 +61,11 @@
   --space-16: 4rem;     /* 64px */
   --space-24: 6rem;     /* 96px */
 
-  /* Shape & elevation — document feel: borders over shadows */
-  --radius-sm: 2px;   /* inputs, tags */
-  --radius-md: 4px;   /* cards */
-  --shadow-card: 0 1px 2px rgba(20, 32, 27, 0.06);
+  /* ---- Shape & elevation ---- */
+  --radius-sm:   3px;    /* inputs */
+  --radius-md:   6px;    /* cards */
+  --radius-lg:   18px;   /* portrait frame, contact block */
+  --radius-pill: 999px;  /* tags, chips */
+  --shadow-card: 0 1px 2px rgba(20, 32, 27, 0.05);
+  --shadow-soft: 0 18px 40px -24px rgba(20, 40, 29, 0.35);
 }

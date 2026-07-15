@@ -5,6 +5,13 @@ export const site = {
   name: 'Muhammad Zidan Arsyad',
   shortName: 'Zidan Arsyad',
   tagline: "ML Engineer · AI Master's Student · LLM Systems",
+
+  // One-line hero statement (Fraunces sub-headline). Keep it to a single sentence.
+  heroLine:
+    'I build and ship end-to-end LLM systems — retrieval, fine-tuning, and production serving.',
+
+  // Specialism chips shown in the hero. 3–4 short items.
+  focus: ['RAG systems', 'LLM fine-tuning (SFT/CPT)', 'vLLM serving'],
   description:
     "Portfolio of Muhammad Zidan Arsyad — ML engineer and AI Master's student. Team lead of a legal document intelligence system for Komdigi: RAG, Qwen3 CPT/SFT fine-tuning, and vLLM deployment.",
   url: 'https://zidan-arsyad.github.io',
