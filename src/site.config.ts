@@ -1,33 +1,33 @@
 // Single place to edit personal/contact/education data.
-// TODO markers indicate placeholder content awaiting real data.
+// Content sourced from the resume in src/assets/resume/.
 
 export const site = {
   name: 'Muhammad Zidan Arsyad',
   shortName: 'Zidan Arsyad',
-  tagline: "AI Master's Student · Applied ML & LLM Systems",
+  tagline: "ML Engineer · AI Master's Student · LLM Systems",
   description:
-    "Portfolio of Muhammad Zidan Arsyad — AI Master's student and team lead of the Komdigi daily intelligence brief system: data scraping, RAG, FastAPI, and Qwen3 fine-tuning.",
+    "Portfolio of Muhammad Zidan Arsyad — ML engineer and AI Master's student. Team lead of a legal document intelligence system for Komdigi: RAG, Qwen3 CPT/SFT fine-tuning, and vLLM deployment.",
   url: 'https://zidan-arsyad.github.io',
 
-  // TODO: replace with real contact details
   email: 'zidarsyad@gmail.com',
   github: 'https://github.com/zidan-arsyad',
   linkedin: 'https://www.linkedin.com/in/zidan-arsyad',
 
-  // 2–4 sentence narrative bio (About section). TODO: replace with real copy.
-  bio: "I'm an AI Master's student focused on applied machine learning and LLM systems. Most recently I led a joint university–Komdigi team building a system that turns high-volume news and social media data into structured daily intelligence briefs for government stakeholders. I work across the full stack of applied AI: data pipelines, retrieval-augmented generation, dockerized APIs, and LLM fine-tuning.",
+  // 2–4 sentence narrative bio (About section).
+  bio: "I'm an ML engineer with hands-on experience building and deploying end-to-end LLM pipelines — RAG, SFT, and CPT — for production use in government intelligence workflows. Most recently I led a four-person AI team delivering a legal document intelligence system for Komdigi (Indonesia's Ministry of Communication and Digital Affairs), serving structured daily briefs to ministry officials. I work across the full ML lifecycle: data collection, model training, API orchestration, and cloud deployment.",
 
   education: [
     {
-      degree: 'M.Sc. Artificial Intelligence (in progress)',
-      institution: 'Gadjah Mada University', // TODO: real institution
-      dates: '2025 — present',
-      note: 'Focus: applied ML & LLM systems.',
+      degree: 'Master of Computer Science — Artificial Intelligence',
+      institution: 'Gadjah Mada University',
+      dates: '2026 — present',
+      note: 'Activity: Artificial Intelligence Talent Factory (AITF) UGM.',
     },
     {
-      degree: 'B.Eng. — Computer Engineering', // TODO: real degree
+      degree: 'Bachelor of Engineering — Computer Engineering',
       institution: 'University of Indonesia',
       dates: '2018 — 2022',
+      note: 'GPA 3.71/4.00 · Activity: IME FTUI, Jogjakun UI.',
     },
   ],
 };
