@@ -1,0 +1,45 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectBrief from './ProjectBrief.astro';
+
+// Layout orchestrator: featured brief full-width first, then the rest in a grid.
+const projects = (await getCollection('projects')).sort(
+  (a, b) => b.data.date.valueOf() - a.data.date.valueOf()
+);
+
+const featured = projects.filter((p) => p.data.featured);
+const standard = projects.filter((p) => !p.data.featured);
+---
+
+<div class="project-list">
+  {featured.map((project) => <ProjectBrief project={project} featured />)}
+  {
+    standard.length > 0 && (
+      <div class="grid">
+        {standard.map((project) => (
+          <ProjectBrief project={project} />
+        ))}
+      </div>
+    )
+  }
+</div>
+
+<style>
+  .project-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-6);
+  }
+
+  @media (max-width: 639px) {
+    .grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

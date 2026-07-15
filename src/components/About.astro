@@ -1,0 +1,22 @@
+---
+import { site } from '../site.config';
+---
+
+<section id="about" aria-label="About">
+  <p class="eyebrow">About</p>
+  <p class="bio">{site.bio}</p>
+</section>
+
+<style>
+  section {
+    padding: var(--space-8) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  .bio {
+    margin-top: var(--space-4);
+    max-width: 65ch;
+    font-size: var(--text-lg);
+    color: var(--color-ink);
+  }
+</style>

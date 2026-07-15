@@ -1,0 +1,55 @@
+/* Design tokens — source of truth is design.md Section 2.
+   If a value changes here, update design.md first, then this file. */
+
+:root {
+  /* Backgrounds */
+  --color-bg:          #F6F7F5;  /* page background — cool paper, not cream */
+  --color-bg-raised:   #FFFFFF;  /* cards / raised surfaces */
+  --color-bg-inset:    #EEF1EC;  /* subtle recessed sections */
+
+  /* Ink */
+  --color-ink:         #14201B;  /* primary text — near-black, green undertone */
+  --color-ink-muted:   #566058;  /* secondary text, captions, metadata */
+  --color-ink-faint:   #8A9189;  /* placeholders, disabled, least-important labels */
+
+  /* Brand green (the accent) */
+  --color-green:        #1B4332;  /* links, buttons, active states, featured badge */
+  --color-green-strong: #122E22;  /* hover/active state of the above */
+  --color-green-soft:   #E3ECE6;  /* tag/pill backgrounds, subtle hover fills */
+
+  /* Structure */
+  --color-border:        #DCDFD9;  /* hairline dividers, card outlines */
+  --color-border-strong: #B9C1B6;  /* emphasis dividers, featured project outline */
+
+  /* Feedback */
+  --color-focus: #1B4332;  /* focus ring — reuses brand green */
+
+  /* Typography */
+  --font-display: 'Fraunces', Georgia, serif;
+  --font-body: 'IBM Plex Sans', 'Segoe UI', sans-serif;
+  --font-mono: 'IBM Plex Mono', 'Consolas', monospace;
+
+  --text-xs:   0.75rem;   /* 12px — mono metadata, tags */
+  --text-sm:   0.875rem;  /* 14px — captions, footer */
+  --text-base: 1rem;      /* 16px — body copy */
+  --text-lg:   1.125rem;  /* 18px — lead paragraph in About */
+  --text-xl:   1.5rem;    /* 24px — H3 / card titles */
+  --text-2xl:  2rem;      /* 32px — H2 section headings */
+  --text-3xl:  3rem;      /* 48px — H1 hero name (clamp down on mobile) */
+
+  /* Spacing — 4px base unit */
+  --space-1: 0.25rem;   /* 4px */
+  --space-2: 0.5rem;    /* 8px */
+  --space-3: 0.75rem;   /* 12px */
+  --space-4: 1rem;      /* 16px */
+  --space-6: 1.5rem;    /* 24px */
+  --space-8: 2rem;      /* 32px */
+  --space-12: 3rem;     /* 48px */
+  --space-16: 4rem;     /* 64px */
+  --space-24: 6rem;     /* 96px */
+
+  /* Shape & elevation — document feel: borders over shadows */
+  --radius-sm: 2px;   /* inputs, tags */
+  --radius-md: 4px;   /* cards */
+  --shadow-card: 0 1px 2px rgba(20, 32, 27, 0.06);
+}

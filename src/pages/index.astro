@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import About from '../components/About.astro';
+import ProjectList from '../components/ProjectList.astro';
+import EducationItem from '../components/EducationItem.astro';
+import ResumeEmbed from '../components/ResumeEmbed.astro';
+import ContactLinks from '../components/ContactLinks.astro';
+import { site } from '../site.config';
+---
+
+<BaseLayout>
+  <Hero />
+  <About />
+
+  <section id="projects" aria-label="Projects">
+    <p class="eyebrow">Projects</p>
+    <ProjectList />
+  </section>
+
+  <section id="education" aria-label="Education">
+    <p class="eyebrow">Education</p>
+    <div class="education-list">
+      {site.education.map((entry) => <EducationItem {...entry} />)}
+    </div>
+  </section>
+
+  <section id="resume" aria-label="Resume">
+    <p class="eyebrow">Resume</p>
+    <ResumeEmbed />
+  </section>
+
+  <section id="contact" aria-label="Contact">
+    <p class="eyebrow">Contact</p>
+    <ContactLinks />
+  </section>
+</BaseLayout>
+
+<style>
+  section {
+    padding: var(--space-8) 0;
+    border-top: 1px solid var(--color-border);
+  }
+
+  section > .eyebrow {
+    margin-bottom: var(--space-6);
+  }
+
+  .education-list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+</style>

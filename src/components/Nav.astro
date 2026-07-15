@@ -1,0 +1,119 @@
+---
+import { site } from '../site.config';
+
+const links = [
+  { href: '#about', label: 'About' },
+  { href: '#projects', label: 'Projects' },
+  { href: '#education', label: 'Education' },
+  { href: '#contact', label: 'Contact' },
+];
+---
+
+<header class="nav-bar">
+  <nav aria-label="Main">
+    <a class="wordmark" href="#top">{site.shortName}</a>
+    <ul>
+      {
+        links.map((link) => (
+          <li>
+            <a href={link.href}>{link.label}</a>
+          </li>
+        ))
+      }
+    </ul>
+  </nav>
+</header>
+
+<style>
+  .nav-bar {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    background: var(--color-bg);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  nav {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: var(--space-3) var(--space-6);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-4);
+  }
+
+  .wordmark {
+    font-family: var(--font-display);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    color: var(--color-ink);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: var(--space-6);
+    /* Mobile: links stay on one row and scroll horizontally if needed */
+    overflow-x: auto;
+  }
+
+  ul a {
+    display: inline-block;
+    padding: var(--space-2) 0; /* tap target height */
+    font-size: var(--text-sm);
+    color: var(--color-ink);
+    text-decoration: none;
+    border-bottom: 2px solid transparent;
+  }
+
+  ul a:hover {
+    color: var(--color-green);
+  }
+
+  /* Active section underline, driven by the scroll-spy below */
+  ul a[aria-current='true'] {
+    color: var(--color-green);
+    border-bottom-color: var(--color-green);
+  }
+
+  @media (max-width: 639px) {
+    nav {
+      padding: var(--space-3) var(--space-4);
+    }
+
+    ul {
+      gap: var(--space-4);
+    }
+  }
+</style>
+
+<script>
+  // Scroll-spy: underline the nav link of the section currently in view.
+  const navLinks = document.querySelectorAll<HTMLAnchorElement>('.nav-bar ul a');
+  const sections = Array.from(navLinks)
+    .map((a) => document.querySelector(a.hash))
+    .filter((s): s is Element => s !== null);
+
+  const setActive = (id: string) => {
+    navLinks.forEach((a) => {
+      if (a.hash === `#${id}`) a.setAttribute('aria-current', 'true');
+      else a.removeAttribute('aria-current');
+    });
+  };
+
+  const observer = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) setActive(entry.target.id);
+      }
+    },
+    { rootMargin: '-40% 0px -55% 0px' }
+  );
+
+  sections.forEach((s) => observer.observe(s));
+</script>

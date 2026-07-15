@@ -1,0 +1,70 @@
+---
+import { resumeFiles, resumePdf } from '../lib/resume';
+---
+
+<div class="resume">
+  {
+    resumePdf && (
+      <embed
+        class="preview"
+        src={resumePdf.url}
+        type="application/pdf"
+        title="Resume preview"
+      />
+    )
+  }
+  <div class="downloads">
+    {
+      resumeFiles.map((file) => (
+        <a class="download-btn" href={file.url} download={file.downloadName}>
+          Download {file.formatLabel}
+        </a>
+      ))
+    }
+  </div>
+</div>
+
+<style>
+  .resume {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-6);
+  }
+
+  /* PDF preview is desktop-only — some mobile browsers won't render <embed>,
+     so the download buttons are the reliable path. */
+  .preview {
+    display: none;
+  }
+
+  @media (min-width: 1024px) {
+    .preview {
+      display: block;
+      width: 100%;
+      height: 640px;
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+    }
+  }
+
+  .downloads {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-4);
+  }
+
+  .download-btn {
+    display: inline-block;
+    padding: var(--space-3) var(--space-6);
+    font-size: var(--text-base);
+    font-weight: 500;
+    color: #ffffff;
+    background: var(--color-green);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+  }
+
+  .download-btn:hover {
+    background: var(--color-green-strong);
+  }
+</style>
